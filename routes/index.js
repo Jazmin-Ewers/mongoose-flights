@@ -7,3 +7,6 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+// AAU, I want to view a list of all flights (index view) that displays each flight's airline, airport, flight no., and departure date/time.
+
