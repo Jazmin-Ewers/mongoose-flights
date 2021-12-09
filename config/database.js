@@ -29,4 +29,5 @@ db.on('connected', function() {
 // replace password and change name of myFirstDatabase
 // load env variables require('dotenv').config(); in server.js
 // connect the database to Mongoose require('./config/database'); in server.js
-
+// Create a module for the Schema/Model
+// Define a basic Schema for a Movie model
