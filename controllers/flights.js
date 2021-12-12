@@ -2,7 +2,9 @@ const Flight = require('../models/flight');
 
 module.exports = {
     index,
-    new: newFlight
+    new: newFlight,
+    create,
+    show
 }
 
 // Step 4 Add and code the controller action/function to use a model function to get all flights and render them in index view and export it.
@@ -12,6 +14,29 @@ function index(req, res){
     });
 }
 
-function newFlight(req,res){
-    res.render('flights/new')
+function newFlight(req, res){
+    res.render('flights/new', { title: "Add Flights"});
+}
+
+function create(req, res) {
+    // Make sure "" values are not entered
+    for (key in req.body){
+        if (req.body[key] === "") delete req.body[key];
+    }
+    // create new info to go into Flight model 
+    const flight = new Flight(req.body);
+    // save new info that handels errors
+    flight.save(function (err) {
+        if (err) {
+            console.log(err);
+        }
+        console.log(flight);
+        res.redirect('/flights/new');
+    });
+}
+
+function show(req, res){
+    Flight.findById(req.params.id, function(err, flight) {
+        res.render('flights/show', { title: "Flight Detail", flight });
+    });
 }
