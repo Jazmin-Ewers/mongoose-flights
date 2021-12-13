@@ -8,7 +8,7 @@
   <div>Flight Number: </div>
   <div><%= flight.flightNo %></div>
   <div>Date: </div>
-  <div><%= flight.flightDate%></div>
+  <div><%= flight.flightDate.toLocaleDateString()%></div>
 </section>
 
 <br><br>
@@ -43,6 +43,25 @@
           <td><%= d.arrival.toLocaleDateString() %></td>
         </tr>
       <% }); %>
+    </tbody>
+  </table>
+  <br><br>
+<h2>All Tickets</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Seat</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tickets.forEach(function(t) { %>
+        <tr>
+          <td><%= t.seat %></td>
+          <td><%= t.price %></td>
+      <% }); %>
+          <td><a class="nav-link" href="/flights/<%= flight._id %>/tickets/new">Add Flight</a></td>
+        </tr>
     </tbody>
   </table>
 
