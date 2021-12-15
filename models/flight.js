@@ -32,7 +32,8 @@ const flightSchema = new Schema({
       return date.setFullYear(new Date().getFullYear() + 1);
     }
   },
-  destinations: [destinationSchema]
+  destinations: [destinationSchema],
+  ticket: [{type: Schema.Types.ObjectId, ref: 'Ticket'}]
 });
 
 // Compile the schema into a model and export it

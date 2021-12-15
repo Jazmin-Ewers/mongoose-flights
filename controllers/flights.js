@@ -32,7 +32,7 @@ function create(req, res) {
             console.log(err);
         }
         console.log(flight);
-        res.redirect('/flights/new');
+        res.redirect('/flights');
     });
 }
 
