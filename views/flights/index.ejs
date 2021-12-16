@@ -1,24 +1,24 @@
 <%- include('../partials/header') %>
-<!-- Step 5 Create layout for page that displays all flights using Flight model data given by the controller function -->
-<table id="list">
-    <thead>
-      <tr>
-        <th>Airline</th>
-        <th>Airport</th>
-        <th>Flight Number</th>
-        <th>Flight Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% flights.forEach(function(f) { %>
-        <tr>
-          <td><%= f.airline %></td>
-          <td><%= f.airport %></td>
-          <td><%= f.flightNo %></td>
-          <td><%= f.flightDate.toLocaleDateString() %></td>
-          <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Airline</th>
+      <th scope="col">Airport</th>
+      <th scope="col">Flight Number</th>
+      <th scope="col">Flight Departure Date</th>
+    </tr>
+  </thead>
+  <% flights.forEach(function(f) { %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= f.airline %></th>
+      <td><%= f.airport %></td>
+      <td><%= f.flightNo %></td>
+      <td><%= f.departs.toLocaleDateString() %></td>
+      <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
 <%- include('../partials/footer') %>
