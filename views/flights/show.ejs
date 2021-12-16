@@ -1,15 +1,23 @@
 <%- include('../partials/header') %>
 <!-- Step 5 Create layout for page that displays a specific flight using Flight model data given by the controller function -->
-<section id="show-page">
-  <div>Airline </div>
-  <div><%= flight.airline %></div>
-  <div>Aiport: </div>
-  <div><%= flight.airport %></div>
-  <div>Flight Number: </div>
-  <div><%= flight.flightNo %></div>
-  <div>Date: </div>
-  <div><%= flight.flightDate.toLocaleDateString()%></div>
-</section>
+<table>
+  <thead>
+    <tr>
+      <th>Airline </th>
+      <th>Aiport</th>
+      <th>Flight Number</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= flight.airline %></td>
+        <td><%= flight.airport %></td>
+        <td><%= flight.flightNo %></td>
+        <td><%= flight.flightDate.toLocaleDateString()%></td>
+      </tr>
+  </tbody>
+</table>
 
 <br><br>
 <h2>Destination</h2>
